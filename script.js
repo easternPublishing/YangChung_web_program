@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     minute: "2-digit"
                 });
                 return `<li class="fb-item">
-                <span class="fb-name">${escapeHtml(item.name || "익명")}</span>
+                ${item.name ? `<span class="fb-name">${escapeHtml(item.name)}</span>` : ""}
                 <span class="fb-time">${tstr}</span><br>
                 <span class="fb-msg">${escapeHtml(item.message)}</span>
             </li>`;
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 ul.insertAdjacentHTML('afterbegin',
                     `<li class="fb-item">
-          <span class="fb-name">${escapeHtml(payload.name || '익명')}</span>
+          ${payload.name ? `<span class="fb-name">${escapeHtml(payload.name)}</span>` : ""}
           <span class="fb-time">${nowStr}</span><br>
           <span class="fb-msg">${escapeHtml(payload.message)}</span>
         </li>`);
